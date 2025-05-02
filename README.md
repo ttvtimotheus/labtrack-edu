@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🧪 LabTrack EDU
 
-First, run the development server:
+**LabTrack EDU** is a free, open-source laboratory management platform for schools, training labs, and education-focused biomedical environments.  
+It helps students, trainees, and teachers organize reagents, equipment, protocols, and lab activities in a clean and efficient interface.
+
+---
+
+## 🚀 Tech Stack
+
+- **Next.js 14** with App Router (TypeScript)
+- **TailwindCSS** for styling
+- **shadcn/ui** for accessible and modern UI components
+- **PostgreSQL** for relational data
+- **Prisma ORM** with Prisma Studio for database management
+- **Optional Auth:** Role-based access (Admin, Teacher, Student)
+
+---
+
+## 🔧 Features
+
+- **Reagent Management** – Inventory tracking, expiry warnings, batch numbers
+- **Device Booking & Maintenance** – Schedule and monitor lab equipment usage
+- **Protocol Manager** – Create, assign, and submit lab experiment templates
+- **Sample Tracking** – Manage biological or chemical samples with location history
+- **Dashboard Overview** – See what’s expiring, active, or pending at a glance
+- **Dark Mode Support** – Clean layout optimized for lab environments
+
+---
+
+## 🛠 Local Development
+
+### Prerequisites
+- Node.js (v18+)
+- PostgreSQL database
+- pnpm (recommended) or npm
+
+### Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/YOUR_USERNAME/labtrack-edu.git
+cd labtrack-edu
+cp .env.example .env
+pnpm install
+npx prisma db push
+npx prisma studio # Optional: open DB dashboard
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧪 Sample Prisma Schema (Excerpt)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```prisma
+model Reagent {
+  id          String   @id @default(uuid())
+  name        String
+  quantity    Int
+  unit        String
+  expiryDate  DateTime
+  location    String
+  createdAt   DateTime @default(now())
+}
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📄 License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is [MIT licensed](LICENSE).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ✨ Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Pull requests are welcome! If you find a bug or have a feature request, feel free to open an issue.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+> Built with ❤️ for science education.
